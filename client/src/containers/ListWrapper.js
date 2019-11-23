@@ -51,7 +51,7 @@ const ListWrapper = () => {
   }, [])
   return (
     <>
-      <List onBottom={() => loadMore()} />
+      <List visibleList={visibleList} onBottom={() => loadMore()} />
     </>
   )
 }

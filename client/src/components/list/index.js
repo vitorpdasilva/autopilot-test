@@ -3,14 +3,11 @@ import Context from '../../context';
 import Item from '../item';
 import ListStyled from './style';
 
-const List = ({ onBottom }) => {
-  const { state } = useContext(Context)
-  const { visibleList } = state;
+const List = ({ visibleList, onBottom }) => {
   useEffect(() => {
     document.addEventListener('scroll', trackScroll())
   }, []);
   const trackScroll = async (e) => {
-    
     if (e) {
       const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
       if (bottom) {
