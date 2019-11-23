@@ -5,7 +5,9 @@ import PhotoIcon from '../photoIcon';
 const Item = ({ data }) => {
   const { name, picture } = data;
   return (
-    <ItemStyled><PhotoIcon url={picture} /> <p>{name}</p></ItemStyled>
+    <ItemStyled>
+      <PhotoIcon rounded url={picture} /> <p>{name}</p>
+    </ItemStyled>
   )
 }
 

@@ -4,11 +4,11 @@ var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 var faker = require('faker');
 
-const list = [...Array(20)].map(() => (
+const list = [...Array(20)].map((i, index) => (
   {
     key: faker.random.number(),
     name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-    picture: faker.image.people()
+    picture: `https://picsum.photos/id/${index}/25/25`
   }
 ))
 

@@ -20,10 +20,9 @@ const LIST_QUERY = `
 
 const ListWrapper = () => {
   const { dispatch, state } = useContext(Context);
-  const { chunkIndex, visibleList, itemList, chunkedList } = state;
+  const { chunkIndex, visibleList, chunkedList } = state;
   const itemsPerLoad = 6; // 6 is the number of items visible on the png sent
   const fetchList = async () => {
-    console.log('fetch')
     try {
       const { list } = await client.request(LIST_QUERY);
       dispatch({ type: 'LOAD_LIST', payload: list });

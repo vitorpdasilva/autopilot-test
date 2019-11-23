@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import Context from '../../context';
 import Item from '../item';
 import ListStyled from './style';
 
