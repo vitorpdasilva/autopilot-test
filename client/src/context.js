@@ -4,7 +4,7 @@ const Context = createContext({
   itemList: null,
   chunkIndex: 0,
   chunkedList: null,
-  visibleList: null,
+  visibleList: [],
 });
 
 export default Context;
