@@ -10,7 +10,7 @@ const PhotoIconStyled = styled.img`
     content: '';
     width: 100%;
     height:100%;
-    background:${props > props.background || 'white'};
+    background:${props => props.background || 'white'};
   }
   &:after {
     content: url('./ico.png');
