@@ -20,26 +20,29 @@ const LIST_QUERY = `
 
 const ListWrapper = () => {
   const { dispatch, state } = useContext(Context);
-  const { chunkIndex, visibleList, itemList } = state;
+  const { chunkIndex, visibleList, itemList, chunkedList } = state;
   const itemsPerLoad = 6; // 6 is the number of items visible on the png sent
   const fetchList = async () => {
+    console.log('fetch')
     try {
       const { list } = await client.request(LIST_QUERY);
       dispatch({ type: 'LOAD_LIST', payload: list });
-      const chunkList = await _.chunk(list, 6);
-      const concatList = _.concat(...visibleList, chunkList[chunkIndex])
-      dispatch({ type: 'VISIBLE_LIST', payload: concatList });
+      
+      const chunkList = _.chunk(list, itemsPerLoad);
+      dispatch({ type: 'CHUNKED_LIST', payload: chunkList })
+      
+      dispatch({ type: 'VISIBLE_LIST', payload: chunkList[chunkIndex] });
     } catch (err) {
       console.log(err)
     }
   }
   
   const loadMore = () => {
-
     setTimeout(() => { // simulating delay on request
-      if (chunkIndex >= itemList.length / itemsPerLoad  ) return;
+      if (chunkIndex >= chunkedList.length -1 ) return;
       dispatch({ type: 'INCREMENT_CHUNK_INDEX', payload: chunkIndex + 1 })
-      fetchList();
+      const concatList = _.concat(visibleList, chunkedList[chunkIndex + 1])
+      dispatch({ type: 'VISIBLE_LIST', payload: concatList }); 
     }, 500)
   }
 

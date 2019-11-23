@@ -5,6 +5,11 @@ export default function reducer(state, { type, payload }) {
         ...state,
         itemList: payload,
       }
+    case "CHUNKED_LIST":
+      return {
+        ...state,
+        chunkedList: payload
+      }
     case "VISIBLE_LIST":
       return {
         ...state,
