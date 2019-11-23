@@ -1,10 +1,10 @@
 import React from 'react';
-import ListWraper from './ListWrapper'
+import ListWrapper from './ListWrapper'
 
 const App = () => {
   return (
     <>
-      <ListWraper />
+      <ListWrapper />
     </>
   )
 }
