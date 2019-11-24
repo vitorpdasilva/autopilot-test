@@ -9,3 +9,6 @@ To Run this project follow the steps below:
 3. `cd client/`
 4. `npm install` (sudo npm install if you havent permissions)
 5. `npm start`
+
+
+**note:** The current data lenght is 20, which can be updated on the server.js file. If you do so, please restart the server.
